@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { Contact } from '../../types/Contact'
+import { requestFailureReducer } from '../../utils/requestFailureReducer'
 
 
 interface ContactsState {
@@ -16,7 +17,7 @@ const contactsSlice = createSlice({
   initialState: initialContactsState,
   reducers: {
     contactsRequest: () => {},
-    contactsFailure: () => {},
+    contactsFailure: requestFailureReducer,
     contactsSuccess: (
       state,
       action: PayloadAction<Contact[]>

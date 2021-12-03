@@ -2,9 +2,11 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import { reducers } from './reducers'
 import { initialContactsState } from './contacts/reducer'
+import { initialNetworkState } from './networkState/reducer'
 
 const initialState = {
   contacts: initialContactsState,
+  network: initialNetworkState,
 }
 
 export const store = configureStore({
