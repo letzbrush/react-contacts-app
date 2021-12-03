@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import { reducers } from './reducers'
+import { initialContactsState } from './contacts/reducer'
 
-const initialState = {}
+const initialState = {
+  contacts: initialContactsState,
+}
 
 export const store = configureStore({
   reducer: reducers,
