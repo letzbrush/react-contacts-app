@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
-import './index.less'
+import './styles/index.less'
 import App from './components/App'
 import reportWebVitals from './reportWebVitals'
 import { store } from './store/store'
