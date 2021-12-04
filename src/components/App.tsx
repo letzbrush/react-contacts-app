@@ -1,20 +1,9 @@
 import React from 'react'
-import { Layout } from 'antd'
 
-import styles from './App.module.less'
+import ContactsPage from './ContactsPage'
 
-const { Header, Content, Footer } = Layout
+const App = () => (
+  <ContactsPage/>
+)
 
-function App() {
-  return (
-    <Layout className={styles.layout}>
-      <Header>Header</Header>
-      <Content>
-        Content
-      </Content>
-      <Footer>Footer</Footer>
-    </Layout>
-  )
-}
-
-export default App;
+export default App
