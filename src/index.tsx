@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
 import './styles/index.less'
-import App from './components/App'
+import Routes from './components/Routes'
 import reportWebVitals from './reportWebVitals'
 import { store } from './store/store'
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App/>
+      <Routes/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

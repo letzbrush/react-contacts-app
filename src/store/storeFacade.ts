@@ -11,6 +11,11 @@ export const useContactsState = () => useAppSelector(
   shallowEqual
 )
 
+export const useContactDetail = (id: number) => useAppSelector(
+  state => state.contacts.contactDetails[id],
+  shallowEqual
+)
+
 export const useNetworkState = () => useAppSelector(
   state => state.network,
   shallowEqual

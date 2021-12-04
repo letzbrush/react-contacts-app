@@ -15,3 +15,13 @@ export const getContacts = async () => {
     avatarUrl: getAvatarUrl(contact.username),
   } as Contact))
 }
+
+export const getContactDetail = async (id: number) => {
+  const jsonPlaceholderContact = await request<JsonPlaceholderContact>(
+    appConfig.apiRoutes.contactDetail(id)
+  )
+  return {
+    ...jsonPlaceholderContact,
+    avatarUrl: getAvatarUrl(jsonPlaceholderContact.username),
+  } as Contact
+}

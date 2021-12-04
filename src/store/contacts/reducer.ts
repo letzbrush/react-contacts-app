@@ -2,14 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { Contact } from '../../types/Contact'
 import { requestFailureReducer } from '../../utils/requestFailureReducer'
+import { Dictionary } from '../../types/Dictionary'
 
 
 interface ContactsState {
   contacts: Contact[]
+  contactDetails: Dictionary<Contact>
 }
 
 export const initialContactsState: ContactsState = {
-  contacts: []
+  contacts: [],
+  contactDetails: {},
 }
 
 const contactsSlice = createSlice({
@@ -24,6 +27,15 @@ const contactsSlice = createSlice({
     ) => {
       state.contacts = action.payload
     },
+    contactDetailRequest: () => {},
+    contactDetailRequestFailure: requestFailureReducer,
+    contactDetailRequestSuccess: (
+      state,
+      action: PayloadAction<Contact>
+    ) => {
+      const newContact = action.payload
+      state.contactDetails[newContact.id] = newContact
+    },
   },
 })
 
@@ -31,6 +43,9 @@ export const {
   contactsRequest,
   contactsFailure,
   contactsSuccess,
+  contactDetailRequest,
+  contactDetailRequestFailure,
+  contactDetailRequestSuccess,
 } = contactsSlice.actions
 
 export const contactsReducer = contactsSlice.reducer

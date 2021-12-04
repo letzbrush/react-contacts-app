@@ -7,7 +7,7 @@ const { Header } = Layout
 const { Title } = Typography
 
 interface PageHeaderProps {
-  children: ReactNode
+  children?: ReactNode
   title?: string
 }
 
