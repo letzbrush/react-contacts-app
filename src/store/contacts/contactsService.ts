@@ -1,7 +1,17 @@
 import { appConfig } from '../../appConfig'
 import { request } from '../../utils/request'
-import { Contact } from '../../types/Contact'
+import { Contact, JsonPlaceholderContact } from '../../types/Contact'
 
-export const getContacts = async () => request<Contact[]>(
-  appConfig.apiRoutes.contacts
+const getAvatarUrl = (username: string) => (
+  `https://avatars.dicebear.com/api/miniavs/${username}.svg?mood[]=happy&mustache[]=horshoe&mustacheProbability=100`
 )
+
+export const getContacts = async () => {
+  const jsonPlaceholderContacts = await request<JsonPlaceholderContact[]>(
+    appConfig.apiRoutes.contacts
+  )
+  return jsonPlaceholderContacts.map(contact => ({
+    ...contact,
+    avatarUrl: getAvatarUrl(contact.username),
+  } as Contact))
+}
