@@ -1,4 +1,3 @@
-import { Dictionary } from './Dictionary'
 
 export interface NetworkResponseSuccess {
   body?: ReadableStream
@@ -10,11 +9,11 @@ export interface NetworkResponseSuccess {
 }
 
 export interface NetworkResponseFailure {
-  body?: Dictionary<unknown>
+  body?: Response['body']
   status?: number
   statusText?: string
+  url?: string
   message?: string
-  method?: 'GET' | 'POST' | 'PUT'
 }
 
 export type NetworkResponse = NetworkResponseSuccess | NetworkResponseFailure

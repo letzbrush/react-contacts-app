@@ -1,11 +1,19 @@
 import { Dictionary } from '../types/Dictionary'
+import { NetworkResponseFailure } from '../types/NetworkResponse'
+
+const getErrorObject = (response: Response) => ({
+  body: response.body,
+  url: response.url,
+  statusText: response.statusText,
+  status: response.status,
+} as NetworkResponseFailure)
 
 const parse = async <ResponseType>(response: Response) => {
   if (response.ok) {
     return await response.json() as ResponseType
   }
 
-  throw response
+  throw getErrorObject(response)
 }
 
 const createHeaders = (headers: Dictionary<string>) => new Headers({

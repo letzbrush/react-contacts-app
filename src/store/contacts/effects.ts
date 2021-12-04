@@ -3,7 +3,7 @@ import { contactsRequest, contactsSuccess, contactsFailure } from './reducer'
 import { getContacts } from './contactsService'
 
 export const fetchContacts = async () => {
-  dispatch(contactsRequest)
+  dispatch(contactsRequest())
   try {
     const contacts = await getContacts()
     dispatch(contactsSuccess(contacts))
