@@ -8,7 +8,7 @@ import { appConfig } from '../appConfig'
 
 const { Meta } = Card
 
-interface ContactDetailCardProps {
+interface ContactCardProps {
   contactDetail?: Contact
   isLoading: boolean
 }
@@ -16,7 +16,7 @@ interface ContactDetailCardProps {
 const ContactCard = ({
   contactDetail,
   isLoading,
-}: ContactDetailCardProps) => {
+}: ContactCardProps) => {
   const history = useHistory()
 
   const navigateToContactDetail = useCallback(() => {
@@ -51,7 +51,12 @@ const ContactCard = ({
         <DeleteOutlined key="delete" onClick={deleteContact}/>,
       ]}
     >
-      <Skeleton loading={isLoading} avatar active>
+      <Skeleton
+        loading={isLoading}
+        paragraph={{ rows: 1 }}
+        avatar
+        active
+      >
         <Meta
           avatar={<Avatar src={contactDetail?.avatarUrl} size='large'/>}
           title={contactDetail?.name}
