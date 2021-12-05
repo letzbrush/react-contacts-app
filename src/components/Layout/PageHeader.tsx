@@ -19,7 +19,7 @@ const PageHeader = ({
     <Header>
       <Row align='middle' justify="space-between" className={styles.mainRow}>
         <Col flex='auto'>
-          <Title>{title}</Title>
+          <Title className={styles.title}>{title}</Title>
         </Col>
         <Col flex='none'>
           {children}

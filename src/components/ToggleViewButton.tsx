@@ -20,6 +20,8 @@ const ToggleViewButton = ({ currentViewType, onClick }: ToggleViewButtonProps) =
     mouseEnterDelay={appConfig.settings.tooltipDelay}
   >
     <Button
+      size='large'
+      type='primary'
       icon={
         currentViewType === ViewType.GRID
           ? (<UnorderedListOutlined/>)
