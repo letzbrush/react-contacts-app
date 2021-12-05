@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import Layout from './Layout'
 import { useContactDetail } from '../store/storeFacade'
 import { fetchContactDetail } from '../store/contacts/effects'
-import { Button } from 'antd'
 import ContactDetailCard from './ContactDetailCard'
 
 interface ContactDetailPageParams {
@@ -22,9 +21,7 @@ const ContactDetailPage = () => {
 
   return (
     <Layout>
-      <Layout.Header>
-        <Button>Go Back</Button>
-      </Layout.Header>
+      <Layout.Header/>
       <Layout.Content>
         <ContactDetailCard
           contactDetail={contactDetail}
