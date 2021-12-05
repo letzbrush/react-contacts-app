@@ -10,7 +10,12 @@ const navRoutes = {
   contactDetail: (id: number) => `/contact/${id}`,
 }
 
+const settings = {
+  tooltipDelay: 0.6,
+}
+
 export const appConfig = {
   apiRoutes,
   navRoutes,
+  settings,
 }

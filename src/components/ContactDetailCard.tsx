@@ -7,7 +7,7 @@ import { Contact } from '../types/Contact'
 const { Meta } = Card
 
 interface ContactDetailCardProps {
-  contactDetail: Contact
+  contactDetail?: Contact
   isLoading: boolean
 }
 
