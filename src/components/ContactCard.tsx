@@ -58,7 +58,7 @@ const ContactCard = ({
         active
       >
         <Meta
-          avatar={<Avatar src={contactDetail?.avatarUrl} size='large'/>}
+          avatar={<Avatar src={contactDetail?.avatarUrl} size={64}/>}
           title={contactDetail?.name}
           description={contactDetail?.phone}
         />

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { List, Avatar } from 'antd'
+import { List } from 'antd'
 
 import { Contact } from '../types/Contact'
-import { appConfig } from '../appConfig'
+import ContactsListEntry from './ContactsListEntry'
 
 interface ContactsListProps {
   contacts: Contact[]
@@ -12,20 +11,10 @@ interface ContactsListProps {
 const ContactsList = ({ contacts }: ContactsListProps) => {
   return (
     <List
-      itemLayout="horizontal"
+      itemLayout='horizontal'
       dataSource={contacts}
       renderItem={contact => (
-        <List.Item>
-          <List.Item.Meta
-            avatar={<Avatar src={contact.avatarUrl} size='large'/>}
-            title={
-              <Link to={appConfig.navRoutes.contactDetail(contact.id)}>
-                {contact.name}
-              </Link>
-            }
-            description={contact.company.catchPhrase}
-          />
-        </List.Item>
+        <ContactsListEntry contactDetail={contact} isLoading={!contact}/>
       )}
     />
   )
