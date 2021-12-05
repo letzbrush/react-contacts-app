@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'antd'
 
 import { Contact } from '../types/Contact'
-import ContactDetailCard from './ContactDetailCard'
+import ContactCard from './ContactCard'
 import ContactsGridLoading from './ContactsGridLoading'
 
 interface ContactsGridProps {
@@ -22,7 +22,7 @@ const ContactsGrid = ({ contacts }: ContactsGridProps) => {
             key={contact.id}
             span={6}
           >
-            <ContactDetailCard
+            <ContactCard
               contactDetail={contact}
               isLoading={!contact}
             />

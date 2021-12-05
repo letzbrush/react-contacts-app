@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import Layout from './Layout'
 import { useContactDetail } from '../store/storeFacade'
 import { fetchContactDetail } from '../store/contacts/effects'
-import ContactDetailCard from './ContactDetailCard'
+import ContactCard from './ContactCard'
 
 interface ContactDetailPageParams {
   id: string
@@ -23,7 +23,7 @@ const ContactDetailPage = () => {
     <Layout>
       <Layout.Header/>
       <Layout.Content>
-        <ContactDetailCard
+        <ContactCard
           contactDetail={contactDetail}
           isLoading={!contactDetail}
         />

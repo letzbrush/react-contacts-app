@@ -13,7 +13,7 @@ interface ContactDetailCardProps {
   isLoading: boolean
 }
 
-const ContactDetailCard = ({
+const ContactCard = ({
   contactDetail,
   isLoading,
 }: ContactDetailCardProps) => {
@@ -53,7 +53,7 @@ const ContactDetailCard = ({
     >
       <Skeleton loading={isLoading} avatar active>
         <Meta
-          avatar={<Avatar src={contactDetail?.avatarUrl} />}
+          avatar={<Avatar src={contactDetail?.avatarUrl} size='large'/>}
           title={contactDetail?.name}
           description={contactDetail?.phone}
         />
@@ -62,4 +62,4 @@ const ContactDetailCard = ({
   )
 }
 
-export default ContactDetailCard
+export default ContactCard

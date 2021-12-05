@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'antd'
 
-import ContactDetailCard from './ContactDetailCard'
+import ContactCard from './ContactCard'
 
 const GRID_LOADING_COUNT = 12
 
@@ -15,7 +15,7 @@ const ContactsGridLoading = () => {
             key={entry}
             span={6}
           >
-            <ContactDetailCard isLoading={true}/>
+            <ContactCard isLoading={true}/>
           </Col>
         ))
       }
