@@ -20,7 +20,9 @@ const ContactsGrid = ({ contacts }: ContactsGridProps) => {
         contacts.map(contact => (
           <Col
             key={contact.id}
-            span={6}
+            xs={24}
+            sm={12}
+            xl={6}
           >
             <ContactCard
               contactDetail={contact}

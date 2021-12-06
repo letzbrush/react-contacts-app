@@ -54,7 +54,7 @@ const ContactsListEntry = ({
           active
         >
           <Row align='middle'>
-            <Col flex='auto'>
+            <Col xs={24} lg={16}>
               <Meta
                 avatar={
                   <Tooltip
@@ -66,7 +66,7 @@ const ContactsListEntry = ({
                 }
                 title={contactDetail?.name}
                 description={
-                  <Space>
+                  <Space wrap>
                     <Space>
                       <MailOutlined/>
                       <Text>{contactDetail?.email}</Text>
@@ -79,7 +79,7 @@ const ContactsListEntry = ({
                 }
               />
             </Col>
-            <Col flex='none'>
+            <Col flex='auto' className={styles.actions}>
               <Space>
                 <Button
                   key="openDetail"

@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, useCallback } from 'react'
-import { Skeleton, Card, Avatar, Tooltip } from 'antd'
-import { EditOutlined, DeleteOutlined, ExpandOutlined } from '@ant-design/icons';
+import { Skeleton, Card, Avatar, Tooltip, Space, Typography } from 'antd'
+import { EditOutlined, DeleteOutlined, ExpandOutlined, PhoneOutlined } from '@ant-design/icons'
 
 import { Contact } from '../types/Contact'
 import { useHistory } from 'react-router'
@@ -9,6 +9,7 @@ import DeleteContactAction from './DeleteContactAction'
 import EditContactAction from './EditContactAction'
 
 const { Meta } = Card
+const { Text } = Typography
 
 interface ContactCardProps {
   contactDetail?: Contact
@@ -30,13 +31,7 @@ const ContactCard = ({
   const openContact: MouseEventHandler = useCallback(event => {
     event.stopPropagation()
     navigateToContactDetail()
-    console.log('openContact')
   }, [navigateToContactDetail])
-
-  const editContact: MouseEventHandler = useCallback(event => {
-    event.stopPropagation()
-    console.log('editContact')
-  }, [])
 
   return (
     <Card
@@ -76,7 +71,12 @@ const ContactCard = ({
             </Tooltip>
           }
           title={contactDetail?.name}
-          description={contactDetail?.phone}
+          description={
+            <Space align='start'>
+              <PhoneOutlined/>
+              <Text>{contactDetail?.phone}</Text>
+            </Space>
+          }
         />
       </Skeleton>
     </Card>
