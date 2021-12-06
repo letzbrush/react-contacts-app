@@ -1,6 +1,6 @@
-import React, { MouseEventHandler, useCallback } from 'react'
+import React, { useCallback } from 'react'
 import { useHistory } from 'react-router'
-import { Skeleton, Card, Avatar, Button, Row, Col, Typography, Divider, List, Space } from 'antd'
+import { Skeleton, Card, Avatar, Button, Row, Col, Typography, List, Space } from 'antd'
 import { MailOutlined, EditOutlined, DeleteOutlined, PhoneOutlined, GlobalOutlined, UserOutlined, HomeOutlined, ShopOutlined } from '@ant-design/icons';
 
 import styles from './ContactDetailCard.module.less'
@@ -21,10 +21,6 @@ const ContactDetailCard = ({
   isLoading,
 }: ContactDetailCardProps) => {
   const history = useHistory()
-
-  const editContact: MouseEventHandler = useCallback(event => {
-    console.log('editContact')
-  }, [])
 
   const onDeleted = useCallback(() => {
     history.push(appConfig.navRoutes.contacts)
