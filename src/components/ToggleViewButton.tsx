@@ -22,6 +22,7 @@ const ToggleViewButton = ({ currentViewType, onClick }: ToggleViewButtonProps) =
     <Button
       size='large'
       type='primary'
+      data-testid='toggleView'
       icon={
         currentViewType === ViewType.GRID
           ? (<UnorderedListOutlined/>)

@@ -22,6 +22,7 @@ const ToggleSortButton = ({ currentSortType, onClick }: ToggleSortButtonProps) =
     <Button
       size='large'
       type='primary'
+      data-testid='toggleSort'
       icon={
         currentSortType === SortType.ASCENDING
           ? (<SortDescendingOutlined/>)
