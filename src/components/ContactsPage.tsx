@@ -18,7 +18,11 @@ const ContactsPage = () => {
   } = useContactsState()
 
   useEffect(() => {
-    fetchContacts()
+    // todo: this condition can be removed if the delete & save endpoints actually work (unlike JsonPlaceholders)
+    if (!contacts.length) {
+      fetchContacts()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const toggleContactsView = useCallback(() => {

@@ -30,6 +30,16 @@ const contactsSlice = createSlice({
     ) => {
       state.contacts = action.payload
     },
+    deleteContactRequest: () => {},
+    deleteContactFailure: requestFailureReducer,
+    deleteContactSuccess: (
+      state,
+      action: PayloadAction<number>
+    ) => {
+      state.contacts = state.contacts.filter(contact => (
+        contact.id !== action.payload
+      ))
+    },
     contactDetailRequest: () => {},
     contactDetailRequestFailure: requestFailureReducer,
     contactDetailRequestSuccess: (
@@ -51,6 +61,9 @@ export const {
   contactsRequest,
   contactsFailure,
   contactsSuccess,
+  deleteContactRequest,
+  deleteContactFailure,
+  deleteContactSuccess,
   contactDetailRequest,
   contactDetailRequestFailure,
   contactDetailRequestSuccess,
