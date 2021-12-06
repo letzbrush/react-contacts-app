@@ -4,18 +4,21 @@ import { Contact } from '../../types/Contact'
 import { requestFailureReducer } from '../../utils/requestFailureReducer'
 import { Dictionary } from '../../types/Dictionary'
 import { ViewType } from '../../types/ViewType'
+import { SortType } from '../../types/SortType'
 
 
 interface ContactsState {
   contacts: Contact[]
   contactDetails: Dictionary<Contact>
   currentView: ViewType
+  currentSorting: SortType
 }
 
 export const initialContactsState: ContactsState = {
   contacts: [],
   contactDetails: {},
   currentView: ViewType.GRID,
+  currentSorting: SortType.ASCENDING,
 }
 
 const contactsSlice = createSlice({
@@ -68,6 +71,11 @@ const contactsSlice = createSlice({
         ? ViewType.LIST
         : ViewType.GRID
     },
+    toggleSorting: state => {
+      state.currentSorting = state.currentSorting === SortType.ASCENDING
+        ? SortType.DESCENDING
+        : SortType.ASCENDING
+    },
   },
 })
 
@@ -85,6 +93,7 @@ export const {
   contactDetailRequestFailure,
   contactDetailRequestSuccess,
   toggleView,
+  toggleSorting,
 } = contactsSlice.actions
 
 export const contactsReducer = contactsSlice.reducer
