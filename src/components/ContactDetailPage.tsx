@@ -16,8 +16,11 @@ const ContactDetailPage = () => {
   const contactDetail = useContactDetail(idNumber)
 
   useEffect(() => {
-    fetchContactDetail(idNumber)
-  }, [idNumber])
+    // todo: this condition can be removed if the delete & save endpoints actually work (unlike JsonPlaceholders)
+    if (!contactDetail) {
+      fetchContactDetail(idNumber)
+    }
+  }, [contactDetail, idNumber])
 
   return (
     <Layout>
