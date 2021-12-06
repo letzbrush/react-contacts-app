@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, useCallback } from 'react'
-import { Skeleton, Card, Avatar } from 'antd'
+import { Skeleton, Card, Avatar, Tooltip } from 'antd'
 import { EditOutlined, DeleteOutlined, ExpandOutlined } from '@ant-design/icons';
 
 import { Contact } from '../types/Contact'
@@ -67,7 +67,14 @@ const ContactCard = ({
         active
       >
         <Meta
-          avatar={<Avatar src={contactDetail?.avatarUrl} size={64}/>}
+          avatar={
+            <Tooltip
+              title={contactDetail?.username}
+              mouseEnterDelay={appConfig.settings.tooltipDelay}
+            >
+              <Avatar src={contactDetail?.avatarUrl} size={64}/>
+            </Tooltip>
+          }
           title={contactDetail?.name}
           description={contactDetail?.phone}
         />

@@ -1,6 +1,12 @@
 import React, { MouseEventHandler, useCallback } from 'react'
-import { Skeleton, Card, Avatar, Space, Row, Col, List, Divider, Typography, Button } from 'antd'
-import { EditOutlined, DeleteOutlined, ExpandOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons'
+import { Skeleton, Card, Avatar, Space, Row, Col, List, Divider, Typography, Button, Tooltip } from 'antd'
+import {
+  EditOutlined,
+  DeleteOutlined,
+  ExpandOutlined,
+  PhoneOutlined,
+  MailOutlined
+} from '@ant-design/icons'
 
 import styles from './ContactsListEntry.module.less'
 import { Contact } from '../types/Contact'
@@ -50,13 +56,20 @@ const ContactsListEntry = ({
           <Row align='middle'>
             <Col flex='auto'>
               <Meta
-                avatar={<Avatar src={contactDetail?.avatarUrl} size='large'/>}
+                avatar={
+                  <Tooltip
+                    title={contactDetail?.username}
+                    mouseEnterDelay={appConfig.settings.tooltipDelay}
+                  >
+                    <Avatar src={contactDetail?.avatarUrl} size={54}/>
+                  </Tooltip>
+                }
                 title={contactDetail?.name}
                 description={
                   <Space>
                     <Space>
-                      <UserOutlined/>
-                      <Text>{contactDetail?.username}</Text>
+                      <MailOutlined/>
+                      <Text>{contactDetail?.email}</Text>
                     </Space>
                     <Space>
                       <PhoneOutlined/>
