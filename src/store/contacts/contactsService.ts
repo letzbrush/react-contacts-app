@@ -1,5 +1,5 @@
 import { appConfig } from '../../appConfig'
-import { request, deleteRequest } from '../../utils/request'
+import { request, putRequest, deleteRequest } from '../../utils/request'
 import { Contact, JsonPlaceholderContact } from '../../types/Contact'
 
 const getAvatarUrl = (username: string) => (
@@ -25,6 +25,13 @@ export const getContactDetail = async (id: number) => {
     avatarUrl: getAvatarUrl(jsonPlaceholderContact.username),
   } as Contact
 }
+
+export const updateContact = async (contact: Contact) => (
+  putRequest<Contact>(
+    appConfig.apiRoutes.contactDetail(contact.id),
+    contact,
+  )
+)
 
 export const deleteContact = async (id: number) => (
   deleteRequest(

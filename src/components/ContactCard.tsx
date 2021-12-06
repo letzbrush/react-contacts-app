@@ -6,6 +6,7 @@ import { Contact } from '../types/Contact'
 import { useHistory } from 'react-router'
 import { appConfig } from '../appConfig'
 import DeleteContactAction from './DeleteContactAction'
+import EditContactAction from './EditContactAction'
 
 const { Meta } = Card
 
@@ -43,7 +44,13 @@ const ContactCard = ({
       onClick={navigateToContactDetail}
       actions={[
         <ExpandOutlined key="openDetail" onClick={openContact}/>,
-        <EditOutlined key="edit" onClick={editContact}/>,
+        <EditContactAction
+          key='edit'
+          contact={contactDetail}
+          renderAction={
+            onClick => (<EditOutlined onClick={onClick}/>)
+          }
+        />,
         <DeleteContactAction
           key='delete'
           contact={contactDetail}

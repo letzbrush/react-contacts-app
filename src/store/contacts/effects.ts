@@ -2,9 +2,11 @@ import { dispatch } from '../storeFacade'
 import {
   contactsRequest, contactsSuccess, contactsFailure, contactDetailRequest,
   contactDetailRequestFailure, contactDetailRequestSuccess, deleteContactRequest,
-  deleteContactFailure, deleteContactSuccess,
+  deleteContactFailure, deleteContactSuccess, updateContactRequest, updateContactFailure,
+  updateContactSuccess,
 } from './reducer'
-import { getContactDetail, getContacts, deleteContact } from './contactsService'
+import { getContactDetail, getContacts, deleteContact, updateContact } from './contactsService'
+import { Contact } from '../../types/Contact'
 
 export const fetchContacts = async () => {
   dispatch(contactsRequest())
@@ -23,6 +25,16 @@ export const fetchContactDetail = async (id: number) => {
     dispatch(contactDetailRequestSuccess(contactDetail))
   } catch (error) {
     dispatch(contactDetailRequestFailure(error))
+  }
+}
+
+export const updateContactDetail = async (contact: Contact) => {
+  dispatch(updateContactRequest())
+  try {
+    const updatedContact = await updateContact(contact)
+    dispatch(updateContactSuccess(updatedContact))
+  } catch (error) {
+    dispatch(updateContactFailure(error))
   }
 }
 

@@ -30,6 +30,20 @@ const contactsSlice = createSlice({
     ) => {
       state.contacts = action.payload
     },
+    updateContactRequest: () => {},
+    updateContactFailure: requestFailureReducer,
+    updateContactSuccess: (
+      state,
+      action: PayloadAction<Contact>
+    ) => {
+      const updatedContact = action.payload
+      state.contacts = state.contacts.map(contact => (
+        contact.id === updatedContact.id
+          ? updatedContact
+          : contact
+      ))
+      state.contactDetails[updatedContact.id] = updatedContact
+    },
     deleteContactRequest: () => {},
     deleteContactFailure: requestFailureReducer,
     deleteContactSuccess: (
@@ -61,6 +75,9 @@ export const {
   contactsRequest,
   contactsFailure,
   contactsSuccess,
+  updateContactRequest,
+  updateContactFailure,
+  updateContactSuccess,
   deleteContactRequest,
   deleteContactFailure,
   deleteContactSuccess,

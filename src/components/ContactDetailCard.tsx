@@ -7,6 +7,7 @@ import styles from './ContactDetailCard.module.less'
 import { Contact } from '../types/Contact'
 import DeleteContactAction from './DeleteContactAction'
 import { appConfig } from '../appConfig'
+import EditContactAction from './EditContactAction'
 
 const { Title, Text, Link } = Typography
 
@@ -32,14 +33,27 @@ const ContactDetailCard = ({
   return (
     <Card
       actions={[
-        <Button key='edit' type='link' size='large' icon={<EditOutlined/>} onClick={editContact}>Edit</Button>,
+        <EditContactAction
+          contact={contactDetail}
+          renderAction={
+            onClick => (
+              <Button
+                type='link'
+                size='large'
+                icon={<EditOutlined/>}
+                onClick={onClick}
+              >
+                Edit
+              </Button>
+            )
+          }
+        />,
         <DeleteContactAction
           contact={contactDetail}
           onContactDeleted={onDeleted}
           renderAction={
             onClick => (
               <Button
-                key='delete'
                 type='link'
                 size='large'
                 icon={<DeleteOutlined/>}
