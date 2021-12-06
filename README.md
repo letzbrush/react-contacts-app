@@ -1,6 +1,6 @@
 # Contacts Exercise App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Small, scalable, responsive, contacts application with edit and delete functionality.
 
 ## Tech Stack
 
@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Ant Design
 - Jest & Testing Library
 - TestCafe
-- Redux
+- Redux & RTK
 - Less
 
 ## Available Scripts
