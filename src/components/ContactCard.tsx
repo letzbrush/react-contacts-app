@@ -35,6 +35,7 @@ const ContactCard = ({
 
   return (
     <Card
+      data-testid='contactCard'
       hoverable
       onClick={navigateToContactDetail}
       actions={[

@@ -35,6 +35,7 @@ const ContactDetailPage = () => {
     <Layout>
       <Layout.Header>
         <Button
+          data-testid='goBackBtn'
           size='large'
           type='primary'
           icon={<ArrowLeftOutlined/>}
