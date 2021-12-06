@@ -2,8 +2,8 @@ import React from 'react'
 import { Button, Tooltip } from 'antd'
 import { TableOutlined, UnorderedListOutlined } from '@ant-design/icons'
 
-import { ViewType } from '../types/ViewType'
-import { appConfig } from '../appConfig'
+import { ViewType } from '../../types/ViewType'
+import { appConfig } from '../../appConfig'
 
 interface ToggleViewButtonProps {
   currentViewType: ViewType

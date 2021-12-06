@@ -1,18 +1,18 @@
 import React, { useCallback, useEffect, useMemo } from 'react'
 
-import { useAppDispatch } from '../store/storeHooks'
-import { useContactsState } from '../store/storeFacade'
-import { fetchContacts } from '../store/contacts/effects'
-import { toggleSorting, toggleView } from '../store/contacts/reducer'
-import Layout from './Layout'
+import { useAppDispatch } from '../../store/storeHooks'
+import { useContactsState } from '../../store/storeFacade'
+import { fetchContacts } from '../../store/contacts/effects'
+import { toggleSorting, toggleView } from '../../store/contacts/reducer'
+import Layout from '../Layout'
 import ContactsGrid from './ContactsGrid'
 import ContactsList from './ContactsList'
 import ToggleViewButton from './ToggleViewButton'
 import ToggleSortButton from './ToggleSortButton'
-import { ViewType } from '../types/ViewType'
+import { ViewType } from '../../types/ViewType'
 import { Space } from 'antd'
-import { SortType } from '../types/SortType'
-import { Contact } from '../types/Contact'
+import { SortType } from '../../types/SortType'
+import { Contact } from '../../types/Contact'
 
 const sortContacts = (contacts: Contact[], type: SortType) => {
   const compareFn = type === SortType.ASCENDING

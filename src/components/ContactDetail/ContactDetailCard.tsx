@@ -4,10 +4,10 @@ import { Skeleton, Card, Avatar, Button, Row, Col, Typography, List, Space } fro
 import { MailOutlined, EditOutlined, DeleteOutlined, PhoneOutlined, GlobalOutlined, UserOutlined, HomeOutlined, ShopOutlined } from '@ant-design/icons';
 
 import styles from './ContactDetailCard.module.less'
-import { Contact } from '../types/Contact'
-import DeleteContactAction from './DeleteContactAction'
-import { appConfig } from '../appConfig'
-import EditContactAction from './EditContactAction'
+import { Contact } from '../../types/Contact'
+import DeleteContactAction from '../DeleteContactAction'
+import { appConfig } from '../../appConfig'
+import EditContactAction from '../EditContactAction'
 
 const { Title, Text, Link } = Typography
 

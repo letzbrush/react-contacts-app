@@ -9,11 +9,11 @@ import {
 } from '@ant-design/icons'
 
 import styles from './ContactsListEntry.module.less'
-import { Contact } from '../types/Contact'
+import { Contact } from '../../types/Contact'
 import { useHistory } from 'react-router'
-import { appConfig } from '../appConfig'
-import EditContactAction from './EditContactAction'
-import DeleteContactAction from './DeleteContactAction'
+import { appConfig } from '../../appConfig'
+import EditContactAction from '../EditContactAction'
+import DeleteContactAction from '../DeleteContactAction'
 
 const { Meta } = Card
 const { Text } = Typography

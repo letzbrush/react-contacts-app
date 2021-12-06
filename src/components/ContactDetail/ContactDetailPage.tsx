@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom'
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 
-import Layout from './Layout'
-import { useContactDetail } from '../store/storeFacade'
-import { fetchContactDetail } from '../store/contacts/effects'
+import Layout from '../Layout'
+import { useContactDetail } from '../../store/storeFacade'
+import { fetchContactDetail } from '../../store/contacts/effects'
 import ContactDetailCard from './ContactDetailCard'
 import { useHistory } from 'react-router'
-import { appConfig } from '../appConfig'
+import { appConfig } from '../../appConfig'
 
 interface ContactDetailPageParams {
   id: string

@@ -2,7 +2,7 @@ import React from 'react'
 import { render, getByTestId } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { ViewType } from '../types/ViewType'
+import { ViewType } from '../../types/ViewType'
 import ToggleViewButton from './ToggleViewButton'
 
 describe('ToggleViewButton', () => {

@@ -2,8 +2,8 @@ import React from 'react'
 import { Button, Tooltip } from 'antd'
 import { SortDescendingOutlined, SortAscendingOutlined } from '@ant-design/icons'
 
-import { appConfig } from '../appConfig'
-import { SortType } from '../types/SortType'
+import { appConfig } from '../../appConfig'
+import { SortType } from '../../types/SortType'
 
 interface ToggleSortButtonProps {
   currentSortType: SortType

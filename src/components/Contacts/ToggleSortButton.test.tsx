@@ -3,7 +3,7 @@ import { render, getByTestId } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import ToggleSortButton from './ToggleSortButton'
-import { SortType } from '../types/SortType'
+import { SortType } from '../../types/SortType'
 
 describe('ToggleSortButton', () => {
   it(`should render descending icon if current state is ascending.`, () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { List } from 'antd'
 
-import { Contact } from '../types/Contact'
+import { Contact } from '../../types/Contact'
 import ContactsListEntry from './ContactsListEntry'
 
 interface ContactsListProps {

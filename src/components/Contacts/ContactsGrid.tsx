@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'antd'
 
-import { Contact } from '../types/Contact'
+import { Contact } from '../../types/Contact'
 import ContactCard from './ContactCard'
 import ContactsGridLoading from './ContactsGridLoading'
 

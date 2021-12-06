@@ -2,11 +2,11 @@ import React, { MouseEventHandler, useCallback } from 'react'
 import { Skeleton, Card, Avatar, Tooltip, Space, Typography } from 'antd'
 import { EditOutlined, DeleteOutlined, ExpandOutlined, PhoneOutlined } from '@ant-design/icons'
 
-import { Contact } from '../types/Contact'
+import { Contact } from '../../types/Contact'
 import { useHistory } from 'react-router'
-import { appConfig } from '../appConfig'
-import DeleteContactAction from './DeleteContactAction'
-import EditContactAction from './EditContactAction'
+import { appConfig } from '../../appConfig'
+import DeleteContactAction from '../DeleteContactAction'
+import EditContactAction from '../EditContactAction'
 
 const { Meta } = Card
 const { Text } = Typography

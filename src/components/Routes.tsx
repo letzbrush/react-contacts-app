@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import ContactsPage from './ContactsPage'
-import ContactDetailPage from './ContactDetailPage'
+import ContactsPage from './Contacts/ContactsPage'
+import ContactDetailPage from './ContactDetail/ContactDetailPage'
 
 const Routes = () => (
   <BrowserRouter basename='/'>
