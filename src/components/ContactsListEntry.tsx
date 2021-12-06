@@ -1,11 +1,13 @@
 import React, { MouseEventHandler, useCallback } from 'react'
-import { Skeleton, Card, Avatar, Space, Row, Col, List, Divider, Typography } from 'antd'
+import { Skeleton, Card, Avatar, Space, Row, Col, List, Divider, Typography, Button } from 'antd'
 import { EditOutlined, DeleteOutlined, ExpandOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons'
 
 import styles from './ContactsListEntry.module.less'
 import { Contact } from '../types/Contact'
 import { useHistory } from 'react-router'
 import { appConfig } from '../appConfig'
+import EditContactAction from './EditContactAction'
+import DeleteContactAction from './DeleteContactAction'
 
 const { Meta } = Card
 const { Text } = Typography
@@ -30,18 +32,7 @@ const ContactsListEntry = ({
   const openContact: MouseEventHandler = useCallback(event => {
     event.stopPropagation()
     navigateToContactDetail()
-    console.log('openContact')
   }, [navigateToContactDetail])
-
-  const editContact: MouseEventHandler = useCallback(event => {
-    event.stopPropagation()
-    console.log('editContact')
-  }, [])
-
-  const deleteContact: MouseEventHandler = useCallback(event => {
-    event.stopPropagation()
-    console.log('deleteContact')
-  }, [])
 
   return (
     <List.Item>
@@ -77,11 +68,40 @@ const ContactsListEntry = ({
             </Col>
             <Col flex='none'>
               <Space>
-                <ExpandOutlined key="openDetail" onClick={openContact}/>
+                <Button
+                  key="openDetail"
+                  type='link'
+                  icon={<ExpandOutlined/>}
+                  onClick={openContact}
+                />
                 <Divider type='vertical'/>
-                <EditOutlined key="edit" onClick={editContact}/>
+                <EditContactAction
+                  key='edit'
+                  contact={contactDetail}
+                  renderAction={
+                    onClick => (
+                      <Button
+                        type='link'
+                        icon={<EditOutlined/>}
+                        onClick={onClick}
+                      />
+                    )
+                  }
+                />
                 <Divider type='vertical'/>
-                <DeleteOutlined key="delete" onClick={deleteContact}/>
+                <DeleteContactAction
+                  key='delete'
+                  contact={contactDetail}
+                  renderAction={
+                    onClick => (
+                      <Button
+                        type='link'
+                        icon={<DeleteOutlined/>}
+                        onClick={onClick}
+                      />
+                    )
+                  }
+                />
               </Space>
             </Col>
           </Row>
