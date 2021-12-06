@@ -1,3 +1,5 @@
+import { notification } from 'antd'
+
 import { dispatch } from '../storeFacade'
 import {
   contactsRequest, contactsSuccess, contactsFailure, contactDetailRequest,
@@ -32,9 +34,12 @@ export const updateContactDetail = async (contact: Contact) => {
   dispatch(updateContactRequest())
   try {
     const updatedContact = await updateContact(contact)
+    notification.success({ message: 'Contact has been saved' })
     dispatch(updateContactSuccess(updatedContact))
   } catch (error) {
+    notification.error({ message: 'Saving was not successful' })
     dispatch(updateContactFailure(error))
+    throw error
   }
 }
 
@@ -42,8 +47,11 @@ export const deleteContactDetail = async (id: number) => {
   dispatch(deleteContactRequest())
   try {
     await deleteContact(id)
+    notification.success({ message: 'Contact has been deleted' })
     dispatch(deleteContactSuccess(id))
   } catch (error) {
+    notification.error({ message: 'Deleting was not successful' })
     dispatch(deleteContactFailure(error))
+    throw error
   }
 }
